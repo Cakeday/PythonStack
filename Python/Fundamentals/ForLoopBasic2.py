@@ -53,4 +53,29 @@
 #     return max
 # print(max([4,1,5,3,567,3]))
 
+# def ultimate(list):
+#     dict = {}
+#     max = list[0]
+#     min = list[0]
+#     sum = 0
+#     for val in range (len(list)):
+#         if list[val] < min:
+#             min = list[val]
+#         elif list[val] > max:
+#             max = list[val]
+#         sum += list[val]
+#     dict["sum"]=sum
+#     dict["max"]=max
+#     dict["min"]=min
+#     dict["avg"]=sum/len(list)
+#     dict["length"]=len(list)
+#     return dict
+# print(ultimate([4,1,5,3,567,3]))
 
+# def reverse(list):
+#     for i in range (len(list)/2):
+#         temp = list[len(list)-i-1]
+#         list[len(list)-i-1] = list[i]
+#         list[i] = temp
+#     return list
+# print(reverse([4,1,5,3,567,3]))
