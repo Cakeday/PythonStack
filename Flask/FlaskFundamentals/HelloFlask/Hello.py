@@ -9,7 +9,7 @@ def catch_all(path):
 
 @app.route('/')
 def hello_world():
-  return render_template('index.html')
+  return render_template('index.html', phrase='Hello!', times=5)
 
 @app.route('/dojo')
 def dojo():
