@@ -1,0 +1,39 @@
+*{
+    /* outline: 1px dotted red;  */
+    font-family: sans-serif;
+}
+
+div.wrapper{
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+    font-size: 0px;
+    line-height: 0px;
+}
+
+    div.row{
+        width: 400px;
+        height: 50px;
+        margin: 0px auto;
+        padding: 0px;
+    }
+    div.column1{
+        width: 50px;
+        height: 50px;
+        margin: 0px;
+        padding: 0px;
+        display: inline-block;
+        background-color: lightcoral;
+    }
+    div.column2{
+        width: 50px;
+        height: 50px;
+        margin: 0px;
+        padding: 0px;
+        display: inline-block;
+        background-color: cornflowerblue;;
+    }
+    h1{
+        line-height: 20px;
+        font-size: initial;
+    }
