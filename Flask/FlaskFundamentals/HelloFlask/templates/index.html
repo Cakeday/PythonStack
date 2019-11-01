@@ -10,17 +10,31 @@
 
     <h1>Hello Flask!</h1>
     <p>Whoa did this create a live server or something?</p>
+    <p>Use this to go to the list link <a href="localhost:5000/lists">Here</a></p>
     <h3>My Flask Template</h3>
     <p>Phrase: {{ phrase }}</p>
     <p>Times: {{ phratimesse }}</p>
 
-    {% for x in range(0,times):%}
+    {#
+        {% for x in range(0,times):%}
         <p>{{ phrase }}</p>
         {% endfor %}
         
     {% if phrase == "hello":%}
         <p>The phrase says hello</p>
         {% endif %}
+    #}
+        <hr>
+
+    <h1>Random Numbers</h1>
+    {% for number in random_numbers %}
+        <p>{{ number }}</p>
+    {% endfor %}
+    <h1>Students</h1>
+    {% for student in students %}
+        <p>{{ student['name'] }} - {{ student['age'] }}</p>
+    {% endfor %}
+
 
 
 </body>
