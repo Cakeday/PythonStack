@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="container text-center justify-content-center">
+        <h1 class="text-light col-4 offset-4 justify-content-center bg-primary rounded-lg">Counter</h1>
+        <h2 class="text-light col-4 offset-4 justify-content-center bg-dark rounded-lg">{{session['counter']}} times</h2>
+        <h2 class="text-dark col-4 offset-4 justify-content-center bg-info rounded-lg">{{session['actual_page_visits']}} actual page visits</h2>
+
+        <form action="/count2" method="post" id="form1"></form>
+        <form action="/destroy_session" method="post" id="form2"></form>
+        
+        
+        <button class="btn btn-outline-secondary" type="submit" form="form1" value="submit">Add two!</button>
+        <button class="btn btn-outline-warning" type="submit" form="form2" value="submit">Clear the counter!</button>
+        
+        <form action="/choose" method="POST" id="form3">
+            <!-- <div class="form-group"> -->
+                <input type="text" class="form-control col-6 offset-3" name="howmuch" id="formGroupExampleInput" placeholder="Increment it as much as you want">
+                <!-- </div> -->
+            </form>
+        <button class="btn btn-outline-info" type="submit" form="form3" value="submit">Submit!</button>
+            
+    </div>
+    
+</body>
+</html>
