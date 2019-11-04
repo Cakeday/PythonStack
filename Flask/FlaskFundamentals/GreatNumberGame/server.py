@@ -32,6 +32,7 @@ def choose():
     if int(counter) == 5:
         answer_key='<h3 class="text-light bg-danger py-5 col-2 offset-5"> are you frikn srs </h3>'
         return render_template('index.html', answer_key=answer_key)
+        # i could totally add another html page that forces them to try again but ehh
 
     if float(request.form['howmuch']) < session['answer']:
         answer_key='<h3 class="text-light bg-danger py-5 col-2 offset-5"> Too Low </h3>'
@@ -44,6 +45,7 @@ def choose():
         x=session['answer']
         answer_key=f'<div class="bg-success py-5 col-2 offset-5"><h3 class="text-light"> about frikn time. the number was {x}!</h3></div>'
         return render_template('index.html', answer_key=answer_key, counter=counter)
+        # i could also add a button with a form that resets the game but also ehh
 
 # @app.route('/count2', methods=['POST'])
 # def count_two():
