@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="container text-center justify-content-center">
+        <h1 class="mt-5 text-light justify-content-center bg-primary rounded-lg">the game is simple</h1>
+        <h2 class="text-light justify-content-center bg-dark rounded-lg">guess a number between 1 and 100<br>don't f it up:</h2>
+
+        <!-- <form action="/count2" method="post" id="form1"></form>
+        <form action="/destroy_session" method="post" id="form2"></form> -->
+        
+        
+        <!-- <button class="btn btn-outline-secondary" type="submit" form="form1" value="submit">Add two!</button>
+        <button class="btn btn-outline-warning" type="submit" form="form2" value="submit">Clear the counter!</button> -->
+        
+        <form action="/guess" method="POST" id="form3">
+            <input type="text" class="form-control col-6 offset-3" name="howmuch" id="formGroupExampleInput" placeholder="ya number">
+        </form>
+        <button class="btn btn-outline-info" type="submit" form="form3" value="submit">Submit!</button>
+            
+
+        <p>{{answer_key|safe}}</p>
+        <p class="mt-5 text-light justify-content-center bg-primary rounded-lg">{{counter}}</p>
+
+
+    </div>
+    
+</body>
+</html>
