@@ -6,4 +6,18 @@
 div.wrapper{
     background-color: lime;
     min-height: 800px;
+    padding-top: 20px;
 }
+
+    p.heading{
+        border-style: solid;
+        width: 20%;
+        margin: 0px auto 20px;
+    }
+
+    h1.timer{
+        border-style: solid;
+        width: 50%;
+        margin: 0px auto;
+        text-align: center;
+    }
