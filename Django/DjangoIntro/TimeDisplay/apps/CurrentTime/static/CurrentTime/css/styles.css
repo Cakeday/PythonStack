@@ -1,0 +1,9 @@
+*{
+    /* outline: 1px dotted red;  */
+    font-family: sans-serif;
+}
+
+div.wrapper{
+    background-color: lime;
+    min-height: 800px;
+}
