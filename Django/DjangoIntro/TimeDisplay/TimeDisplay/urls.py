@@ -16,7 +16,9 @@ Including another URLconf
 from django.conf.urls import url, include
 # from django.contrib import admin
 
+print('ya boiiiii is now inside the urls.py on the project folder')
 urlpatterns = [
     # url(r'^admin/', admin.site.urls),
-    url(r'^', include('apps.CurrentTime.urls'))
+    url(r'^', include('apps.CurrentTime.urls')),
+    url(r'^', include('apps.RandomWord.urls'))
 ]
