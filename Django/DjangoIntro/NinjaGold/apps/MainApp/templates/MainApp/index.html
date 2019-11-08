@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+
+    <div class="container pt-5">
+
+        <div class="row mt-5">
+            <p class="d-inline-block mr-1">Your Gold</p>
+            <p class="border px-1">{{request.session.total_gold}}</p>
+        </div>
+
+        <form action="/process_money" method="post" id="form1">{% csrf_token %}<input type="hidden" name="some_action" value="farm"></form>
+        <form action="/process_money" method="post" id="form2">{% csrf_token %}<input type="hidden" name="some_action" value="cave"></form>
+        <form action="/process_money" method="post" id="form3">{% csrf_token %}<input type="hidden" name="some_action" value="house"></form>
+        <form action="/process_money" method="post" id="form4">{% csrf_token %}<input type="hidden" name="some_action" value="casino"></form>
+
+        <div class="row pt-5">
+            <div class="col">
+                <p class="text-center">Farm</p>
+                <p class="text-center">(earns 10-20 gold)</p>
+                <button class="btn btn-secondary btn-sm d-block m-0" type="submit" form="form1">Find Gold!</button>
+            </div>
+
+            <div class="col">
+                <p class="text-center">Cave</p>
+                <p class="text-center">(earns 5-10 gold)</p>
+                <button class="btn btn-secondary btn-sm" type="submit" form="form2">Find Gold!</button>
+            </div>
+
+            <div class="col">
+                <p class="text-center">House</p>
+                <p class="text-center">(earns 2-5 gold)</p>
+                <button class="btn btn-secondary btn-sm" type="submit" form="form3">Find Gold!</button>
+            </div>
+
+            <div class="col">
+                <p class="text-center">Casino</p>
+                <p class="text-center">(earns/takes 0-50 gold)</p>
+                <button class="btn btn-secondary btn-sm" type="submit" form="form4">Find Gold!</button>
+            </div>
+        </div>
+
+        <div class="row border mt-3" style="height: 200px;">
+            <div class="overflow-auto">
+                {%for i in request.session.scrollset%}
+                    {% if request.session.just_earned > 0 %}
+                    <p class="text-success">{{ i }}</p>
+                    {% endif %}
+                    
+                    {% if request.session.just_earned <= 0 %}
+                    <p class="text-danger">{{ i }}</p>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+
+
+
+
+
+
+
+    </div>
+
+</body>
+</html>

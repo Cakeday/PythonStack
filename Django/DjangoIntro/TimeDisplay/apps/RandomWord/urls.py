@@ -6,5 +6,5 @@ urlpatterns = [
     url(r'^random_word$', views.index),
     url(r'^generate$', views.generator),
     url(r'^clear$', views.clear),
-
+    url(r'^test$', views.test),
 ]

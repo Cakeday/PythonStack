@@ -20,4 +20,13 @@ def clear(request):
     request.session.clear()
     return redirect('/random_word')
 
+def postroute(request):
+    if request.method == 'POST':
+        a = request.POST['key']
+        return redirect('/wherever')
+    if request.method == 'GET':
+        return render(request, "test.html")
 
+
+def test(request):
+    return render(request, 'RandomWord/test.html')
