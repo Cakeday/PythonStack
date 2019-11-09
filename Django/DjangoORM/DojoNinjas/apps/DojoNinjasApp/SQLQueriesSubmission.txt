@@ -1,0 +1,25 @@
+>>> Dojo.objects.create(name="Dojo number 1", city="San Jose", state="California")
+
+>>> Dojo.objects.create(name="Dojo number 2", city="Orange County", state="California")
+
+>>> Dojo.objects.create(name="Dojo number 3", city="Seattle", state="Washington")
+
+>>> Dojo.objects.get(id=1).delete()
+
+>>> Dojo.objects.get(id=2).delete()
+
+>>> Dojo.objects.get(id=3).delete()
+
+>>> Ninja.objects.create(first_name="Caleb", last_name="Reyes", dojo=Dojo.objects.get(id=4))
+
+>>> Ninja.objects.create(first_name="Maddie", last_name="Brace", dojo=Dojo.objects.get(id=5))
+
+>>> Ninja.objects.create(first_name="Cameron", last_name="Reyes", dojo=Dojo.objects.get(id=6))
+
+>>> Ninja.objects.filter(dojo=Dojo.objects.get(id=4))
+
+>>> Ninja.objects.filter(dojo=Dojo.objects.get(id=6))
+
+>>> Ninja.objects.last().dojo
+
+>>> Dojo.objects.create(name="Dojo number 4", city="Berkeley", state="California", desc="This is the dojo closest to Maddie's house")
