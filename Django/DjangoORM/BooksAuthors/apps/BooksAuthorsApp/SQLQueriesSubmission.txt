@@ -1,0 +1,82 @@
+>>> Book.objects.create(title="C Sharp", desc=" ")
+
+>>> Book.objects.create(title="Java", desc=" ")
+
+>>> Book.objects.create(title="Python", desc=" ")
+
+>>> Book.objects.create(title="PHP", desc=" ")
+
+>>> Book.objects.create(title="Ruby", desc=" ")
+
+>>> Author.objects.create(first_name="Jane", last_name="Austen")
+
+>>> Author.objects.create(first_name="Emily", last_name="Dickinson")
+
+>>> Author.objects.create(first_name="Fyodor", last_name="Dostoevksy")
+
+>>> Author.objects.create(first_name="William", last_name="Shakespeare")
+
+>>> Author.objects.create(first_name="Lau", last_name="Tzu")
+
+>>> Author.objects.get(id=4).first_name="Bill"
+>>> Author.objects.get(id=4).save()
+>>> Author.objects.get(id=4)
+<Books object: William Shakespeare BooksAuthorsApp.Book.None>
+>>> x=Author.objects.get(id=4)
+>>> x.first_name
+'William'
+>>> x.first_name="Bill"
+>>> x.first_name
+'Bill'
+>>> Author.objects.get(id=4)
+<Books object: William Shakespeare BooksAuthorsApp.Book.None>
+>>> x.save()
+>>> auth=Author.objects.get(id=1)
+>>> auth
+<Books object: Jane Austen BooksAuthorsApp.Book.None>
+>>> book1=Book.objects.get(id=1)
+>>> book2=Book.objects.get(id=2)
+>>> book1.authors.add(auth)
+>>> book2.authors.add(auth)
+>>> auth.books.all()
+<QuerySet [<Books object: C#  >, <Books object: Java  >]>
+>>> book3=Book.objects.get(id=3)
+>>> auth=Author.objects.get(id=2)
+>>> auth
+<Books object: Emily Dickinson BooksAuthorsApp.Book.None>
+>>> auth.all()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'Author' object has no attribute 'all'
+>>> auth
+<Books object: Emily Dickinson BooksAuthorsApp.Book.None>
+>>> auth.books.add(book1)
+>>> auth.books.add(book2)
+>>> auth.books.add(book3)
+>>> auth=Author.objects.get(id=3)
+>>> auth.books.add(book1)
+>>> auth.books.add(book2)
+>>> auth.books.add(book3)
+>>> auth.books.add(book4)
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'book4' is not defined
+>>> book3=Book.objects.get(id=4)
+>>> auth.books.add(book3)
+>>> auth=Author.objects.get(id=4)
+>>> book3=Book.objects.get(id=3)
+>>> book4=Book.objects.get(id=4)
+>>> book5=Book.objects.get(id=5)
+>>> auth.books.add(book1)
+>>> auth.books.add(book2)
+>>> auth.books.add(book3)
+>>> auth.books.add(book4)
+>>> auth.books.add(book5)
+>>> book=Book.objects.get(id=3)
+>>> book.authors
+<django.db.models.fields.related_descriptors.create_forward_many_to_many_manager.<locals>.ManyRelatedManager object at 0x10831d9d0>
+>>> book.authors.all()
+<QuerySet [<Books object: Fyodor Dostoevksy BooksAuthorsApp.Book.None>, <Books object: Emily Dickinson BooksAuthorsApp.Book.None>, <Books object: Bill Shakespeare BooksAuthorsApp.Book.None>]>
+>>> book=Book.objects.get(id=3)
+>>> auth=Author.objects.get(id=1)
+>>> book.authors.remove(auth)
