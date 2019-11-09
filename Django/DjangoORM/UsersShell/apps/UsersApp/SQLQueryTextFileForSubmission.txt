@@ -1,0 +1,23 @@
+>>> Users.objects.create(first_name="Caleb", last_name="Reyes", email_address="sciencecamp123@gmaiil.com", age="22")
+
+>>> Users.objects.create(first_name="Maddie", last_name="Brace", email_address="madabada98@gmaiil.com", age="21")
+
+>>> Users.objects.create(first_name="Chris", last_name="Martin", email_address="chrispotmar@gmaiil.com", age="23")
+
+>>> Users.objects.all()
+
+>>> Users.objects.last() 
+
+>>> Users.objects.first()
+
+>>> UserToUpdate = Users.objects.get(id=3)
+>>> UserToUpdate.last_name = "Pancakes"
+>>> Users.objects.get(id=3)
+>>> UserToUpdate.save()
+>>> UserToUpdate
+
+>>> Users.objects.get(id=2).delete()
+
+>>> Users.objects.all().order_by("first_name")
+
+>>> Users.objects.all().order_by("-first_name")
