@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Add an Author</h1>
+    <form action="author_add" method="post">{% csrf_token %}
+        First Name: <input type="text" name="authf">
+        Last Name: <input type="text" name="authl">
+        Notes: <textarea rows="4" cols="50" name="authn"></textarea>
+        <input type="submit" value="Add">
+    </form>
+
+    <table>
+        <thead>
+            <td>ID</td>
+            <td>Name</td>
+            <td>Action</td>
+        </thead>
+
+        {% for author in all_authors %}
+        <tr>
+            <td>{{author.first_name}}</td>
+            <td>{{author.last_name}}</td>
+            <td><a href="/authors/{{author.id}}">View this biznch</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    
+</body>
+</html>

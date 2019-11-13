@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Add a Book</h1>
+    <form action="book_add" method="post">{% csrf_token %}
+        Title: <input type="text" name="book_title">
+        Description: <textarea rows="4" cols="50" name="book_desc"></textarea>
+        <input type="submit" value="Add">
+    </form>
+
+    <table>
+        <thead>
+            <td>ID</td>
+            <td>Title</td>
+            <td>Action</td>
+        </thead>
+
+        {% for book in all_books %}
+            <tr>
+                <td>{{book.id}}</td>
+                <td>{{book.title}}</td>
+                <td><a href="/books/{{book.id}}">View this binch</a></td>
+            </tr>
+        {% endfor %}
+
+    </table>
+    
+</body>
+</html>
