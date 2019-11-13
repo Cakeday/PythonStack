@@ -43,7 +43,7 @@ def update(request):
         return redirect(f'/shows/{show_to_update.id}')
 
 def destroy(request, id):
-    if request.method == 'POST':
+    if request.method == 'GET':
         show_to_delete = Show.objects.get(id=id)
         show_to_delete.delete()
         return redirect('/shows')
