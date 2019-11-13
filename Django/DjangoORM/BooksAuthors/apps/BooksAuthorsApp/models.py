@@ -1,4 +1,5 @@
 from django.db import models
+from __future__ import unicode_literals
 
 class Book(models.Model):
     title = models.CharField(max_length=255)
@@ -19,3 +20,4 @@ class Author(models.Model):
 
     def __repr__(self):
         return f"<Books object: {self.first_name} {self.last_name} {self.books}>"
+
