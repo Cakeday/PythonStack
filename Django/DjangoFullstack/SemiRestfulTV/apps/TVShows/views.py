@@ -13,9 +13,9 @@ def create(request):
             for key, value in errors.items():
                 messages.error(request, value)
             return redirect('/shows/new')
-        Show.objects.create(title=request.POST['title'], network=request.POST['network'], release_date=request.POST['release_date'], description=request.POST['description'])
-        new=Show.objects.last()
-        return redirect(f'/shows/{new.id}')
+    Show.objects.create(title=request.POST['title'], network=request.POST['network'], release_date=request.POST['release_date'], description=request.POST['description'])
+    new=Show.objects.last()
+    return redirect(f'/shows/{new.id}')
 
 def display(request, id):
     if request.method == 'GET':
