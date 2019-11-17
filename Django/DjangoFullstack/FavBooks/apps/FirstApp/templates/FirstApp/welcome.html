@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Welcome</title>
+</head>
+<body>
+
+
+    <h1>Success! Welcome, {{user.first_name}}!</h1>
+    <a href="/logout">Log Out</a>
+
+    <h3>Add a book</h3>
+    <form action="/add_a_book" method="POST">
+    {% csrf_token %}
+        Title: <input type="text" name="title">
+        Description: <textarea name="description" cols="30" rows="10"></textarea>
+        <input type="submit" value="Add">
+    </form>
+
+
+
+    <!-- Error messages for add book form -->
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <li>{{message}}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+
+    <!-- ALL BOOKS UPLOADED BY ALL USERS -->
+    <h1>All Books</h1>
+        {% for book in all_books %}
+        <p><a href="/books/{{book.id}}">{{book.title}}</a></p>
+        <p>(added by {{book.uploaded_by.first_name}} {{book.uploaded_by.last_name}})</p>
+        {% if iduser = book.userswholiked.id %}
+        <BR></BR>
+<!-- I STILL NEED TO ADD THE FAVORITES RELATIONSHIPS -->
+        {% endfor %}
+
+
+
+
+</body>
+
+</html>
