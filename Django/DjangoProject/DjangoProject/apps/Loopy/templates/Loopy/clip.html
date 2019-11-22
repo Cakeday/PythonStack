@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'Loopy/css/clip.css' %}">
+    <script rel="stylesheet" src="{% static 'Loopy/js/node_modules/tone/build/Tone.js' %}"></script>
+    <script rel="stylesheet" src="{% static 'Loopy/js/MyStuff.js' %}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body> 
+    <div class="wrapper">
+        <div class="container">
+            <div class="image" id="1"></div>
+            <div class="image" id="2"></div>
+            <div class="image" id="3"></div>
+            <div class="image" id="4"></div>
+            <div class="image" id="5"></div>
+            <div class="image" id="6"></div>
+            <div class="image" id="7"></div>
+            <div class="image" id="8"></div>
+            <div class="image" id="9"></div>
+            <div class="image" id="10"></div>
+            <div class="image" id="11"></div>
+            <div class="image" id="12"></div>
+            <div class="image" id="13"></div>
+            <div class="image" id="14"></div>
+            <div class="image" id="15"></div>
+            <div class="image" id="16"></div>
+        </div>
+        <div class="start">Start</div>
+        <div class="stop">stop</div>
+        <div class="log">log</div>
+    </div>
+
+<script>
+
+// this deals with the transport
+    // console.log(Tone.Transport);
+    Tone.Transport.setLoopPoints("0m", "4m");
+    Tone.Transport.loop = true;
+    // Tone.Transport.start();
+    console.log(Tone.Transport.state);
+
+// this deals with the loops I think
+    // var loop = new Tone.Loop(callback, "4m").start(0);
+
+
+// this is what creates the synths
+    var synth = new Tone.Synth().toMaster().sync();
+    var synth2 = new Tone.Synth().toMaster().sync();
+    var synth3 = new Tone.Synth().toMaster().sync();
+    var synth4 = new Tone.Synth().toMaster().sync();
+
+
+
+
+
+
+
+
+
+// heres the first column's sounds
+    var beat1 = new Tone.Player({
+        "url" : "{% static 'Loopy/clips/beat1.wav' %}",
+        "loop" : true,
+        "mute" : true,
+    }).toMaster().sync("0:0:0").start("0m").stop("5m");
+
+    var beat2 = new Tone.Player({
+        "url" : "{% static 'Loopy/clips/beat2.wav' %}",
+        "loop" : true,
+        "mute" : true,
+    }).toMaster().sync().start("0m").stop("5m");
+
+    var halftime_beat = new Tone.Player({
+        "url" : "{% static 'Loopy/clips/halftime_beat.wav' %}",
+        "loop" : true,
+        "mute" : true,
+    }).toMaster().sync().start("0m").stop("5m");
+
+    var halftime_perc = new Tone.Player({
+        "url" : "{% static 'Loopy/clips/halftime_perc.wav' %}",
+        "loop" : true,
+        "mute" : true,
+    }).toMaster().sync().start("0m").stop("5m");
+
+
+
+
+
+
+
+
+// heres the second column's sounds
+    var hat1 = new Tone.Player({
+        "url" : "{% static 'Loopy/clips/hat1.wav' %}",
+        "loop" : true,
+        "mute" : true,
+    }).toMaster().sync().start("0m").stop("5m");
+
+    var hat2 = new Tone.Player({
+        "url" : "{% static 'Loopy/clips/hat2.wav' %}",
+        "loop" : true,
+        "mute" : true,
+    }).toMaster().sync().start("0m").stop("5m");
+
+    var hat3 = new Tone.Player({
+        "url" : "{% static 'Loopy/clips/hat3.wav' %}",
+        "loop" : true,
+        "mute" : true,
+    }).toMaster().sync().start("0m").stop("5m");
+
+    var splash = new Tone.Player({
+        "url" : "{% static 'Loopy/clips/splash.wav' %}",
+        "loop" : false,
+        "mute" : true,
+    }).toMaster().sync().start("0m").stop("5m");
+
+
+
+
+
+
+
+
+// heres the third column's sounds
+    var tom = new Tone.Player({
+        "url" : "{% static 'Loopy/clips/tom.wav' %}",
+        "loop" : true,
+        "mute" : true,
+    }).toMaster().sync().start("0:0:3").stop("5m");    
+
+    var snap = new Tone.Player({
+        "url" : "{% static 'Loopy/clips/snap.wav' %}",
+        "loop" : true,
+        "mute" : true,
+    }).toMaster().sync().start("0:1").stop("5m");    
+
+    var vinyl = new Tone.Player({
+        "url" : "{% static 'Loopy/clips/vinyl.wav' %}",
+        "loop" : true,
+        "mute" : true,
+    }).toMaster().sync().start("0m").stop("5m");    
+
+    var arp = new Tone.Player({
+        "url" : "{% static 'Loopy/clips/arp.wav' %}",
+        "loop" : true,
+        "mute" : true,
+    }).toMaster().sync().start("0m").stop("5m");    
+
+
+
+
+
+
+
+
+
+// here's the fourth column's sounds
+
+    var chords = new Tone.Player({
+        "url" : "{% static 'Loopy/clips/chords.wav' %}",
+        "loop" : true,
+        "mute" : true,
+    }).toMaster().sync().start("0m").stop("5m");    
+
+    var open_chords = new Tone.Player({
+        "url" : "{% static 'Loopy/clips/open_chords.wav' %}",
+        "loop" : true,
+        "mute" : true,
+    }).toMaster().sync().start("0m").stop("5m");    
+
+    var pluck = new Tone.Player({
+        "url" : "{% static 'Loopy/clips/pluck.wav' %}",
+        "loop" : true,
+        "mute" : true,
+    }).toMaster().sync().start("0m").stop("5m");
+    
+    var trumpet = new Tone.Player({
+        "url" : "{% static 'Loopy/clips/trumpet.wav' %}",
+        "loop" : true,
+        "mute" : true,
+    }).toMaster().sync().start("0m").stop("5m");
+
+
+    
+
+
+
+
+
+
+
+
+    
+    // Here is the first column
+    $('div#1').click(function(){
+        if (beat1["mute"] == true){
+            beat1["mute"] = false;
+            $(this).addClass("active");
+        }
+        else if (beat1["mute"] == false){
+            beat1["mute"] = true;
+            $(this).removeClass("active");
+        }
+    });
+
+    $('div#5').click(function(){
+        if (beat2["mute"] == true){
+            beat2["mute"] = false;
+            $(this).addClass("active");
+        }
+        else if (beat2["mute"] == false){
+            beat2["mute"] = true;
+            $(this).removeClass("active");
+        }
+    });
+
+    $('div#9').click(function(){
+        if (halftime_beat["mute"] == true){
+            halftime_beat["mute"] = false;
+            $(this).addClass("active");
+        }
+        else if (halftime_beat["mute"] == false){
+            halftime_beat["mute"] = true;
+            $(this).removeClass("active");
+        }
+    });
+
+    $('div#13').click(function(){
+        if (halftime_perc["mute"] == true){
+            halftime_perc["mute"] = false;
+            $(this).addClass("active");
+        }
+        else if (halftime_perc["mute"] == false){
+            halftime_perc["mute"] = true;
+            $(this).removeClass("active");
+        }
+    });
+
+
+
+
+
+
+
+
+    // heres the second column
+    $('div#2').click(function(){
+        if (hat1["mute"] == true){
+            hat1["mute"] = false;
+            $(this).addClass("active");
+        }
+        else if (hat1["mute"] == false){
+            hat1["mute"] = true;
+            $(this).removeClass("active");
+        }
+    });
+
+    $('div#6').click(function(){
+        if (hat2["mute"] == true){
+            hat2["mute"] = false;
+            $(this).addClass("active");
+        }
+        else if (hat2["mute"] == false){
+            hat2["mute"] = true;
+            $(this).removeClass("active");
+        }
+    });
+
+    $('div#10').click(function(){
+        if (hat3["mute"] == true){
+            hat3["mute"] = false;
+            $(this).addClass("active");
+        }
+        else if (hat3["mute"] == false){
+            hat3["mute"] = true;
+            $(this).removeClass("active");
+        }
+    });
+
+    $('div#14').click(function(){
+        if (splash["mute"] == true){
+            splash["mute"] = false;
+            $(this).addClass("active");
+        }
+        else if (splash["mute"] == false){
+            splash["mute"] = true;
+            $(this).removeClass("active");
+        }
+    });
+
+
+
+
+
+
+
+
+    // heres the third column
+    $('div#3').click(function(){
+        if (tom["mute"] == true){
+            tom["mute"] = false;
+            $(this).addClass("active");
+        }
+        else if (tom["mute"] == false){
+            tom["mute"] = true;
+            $(this).removeClass("active");
+        }
+    });
+
+    $('div#7').click(function(){
+        if (snap["mute"] == true){
+            snap["mute"] = false;
+            $(this).addClass("active");
+        }
+        else if (snap["mute"] == false){
+            snap["mute"] = true;
+            $(this).removeClass("active");
+        }
+    });
+
+    $('div#11').click(function(){
+        if (vinyl["mute"] == true){
+            vinyl["mute"] = false;
+            $(this).addClass("active");
+        }
+        else if (vinyl["mute"] == false){
+            vinyl["mute"] = true;
+            $(this).removeClass("active");
+        }
+    });
+
+    $('div#15').click(function(){
+        if (arp["mute"] == true){
+            arp["mute"] = false;
+            $(this).addClass("active");
+        }
+        else if (arp["mute"] == false){
+            arp["mute"] = true;
+            $(this).removeClass("active");
+        }
+    });
+
+
+
+
+
+
+
+    // heres the fourth column
+    $('div#4').click(function(){
+        if (chords["mute"] == true){
+            chords["mute"] = false;
+            $(this).addClass("active");
+        }
+        else if (chords["mute"] == false){
+            chords["mute"] = true;
+            $(this).removeClass("active");
+        }
+    });
+
+    $('div#8').click(function(){
+        if (open_chords["mute"] == true){
+            open_chords["mute"] = false;
+            $(this).addClass("active");
+        }
+        else if (open_chords["mute"] == false){
+            open_chords["mute"] = true;
+            $(this).removeClass("active");
+        }
+    });
+
+    $('div#12').click(function(){
+        if (pluck["mute"] == true){
+            pluck["mute"] = false;
+            $(this).addClass("active");
+        }
+        else if (pluck["mute"] == false){
+            pluck["mute"] = true;
+            $(this).removeClass("active");
+        }
+    });
+
+    $('div#16').click(function(){
+        if (trumpet["mute"] == true){
+            trumpet["mute"] = false;
+            $(this).addClass("active");
+        }
+        else if (trumpet["mute"] == false){
+            trumpet["mute"] = true;
+            $(this).removeClass("active");
+        }
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+    $('div.container').children().click(function(){
+        if (Tone.Transport.state == "stopped"){
+            Tone.Transport.start();
+        }
+    });
+
+    $('div.start').click(function(){
+        Tone.Transport.start();
+    });
+
+    $('.stop').click(function(){
+        if (Tone.Transport.state == "started"){
+            Tone.Transport.stop();
+            console.log(Tone.Transport.getSecondsAtTime());
+        }
+    });
+
+    $('div.log').click(function(){
+        console.log(Tone.Transport.getSecondsAtTime());
+        console.log(Tone.Transport.state);
+
+    });
+</script>
+
+
+
+
+</body>
+</html>

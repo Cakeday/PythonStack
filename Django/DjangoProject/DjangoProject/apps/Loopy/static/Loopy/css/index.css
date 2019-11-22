@@ -1,0 +1,79 @@
+* {
+    outline: red dotted 1px;
+    font-family: sans-serif;
+    margin: 0px;
+    padding: 0px;
+}
+
+:root {
+    --color-1: rgb(0, 109, 119);
+    --color-2: rgb(131, 197, 190);
+    --color-3: rgb(237, 246, 249);
+    --color-4: rgb(255, 221, 210);
+    --color-5: rgb(226, 149, 120);
+}
+
+
+body {
+    display: grid; 
+    min-height: 100vh; 
+    place-items: center;
+    background-color: var(--color-3);
+  }
+    .item-1 {
+        background-color: var(--color-4);
+        align-content: center;
+        justify-content: center;
+        border-radius: 20px;
+        padding: 20px 80px;
+        box-shadow: 0 0 20px var(--color-1);
+    }
+    .item-1>h1 {
+        color: var(--color-1);
+        text-align: center;
+    }
+    .item-1>input {
+        display: block;
+        text-align: center;
+        padding: 10px;
+        margin: 10px auto;
+        border: 2px solid var(--color-2);
+        background: none;
+        width: 60%;
+        color: var(--color-1);
+        opacity: 1;
+        border-radius: 24px;
+        transition: 0.25s;
+    }
+    ::placeholder {
+        color: var(--color-1);
+        opacity: 1;
+    }
+    input:focus::placeholder {
+        color:transparent;
+    }
+    .item-1>input:hover {
+        width: 80%;
+        border-color: var(--color-1);
+    }
+
+.clip {
+    
+}
+
+
+
+
+
+
+
+
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {} 
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {} 
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {} 
