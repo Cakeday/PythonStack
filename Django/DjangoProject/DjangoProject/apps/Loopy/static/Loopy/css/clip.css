@@ -16,11 +16,21 @@
 }
 
 .wrapper {
-    /* background-color: var(--color-3); */
+    display: grid;
+    width: 95vw;
+    /* background-color: var(--color-5); */
+    margin: 0px auto;
+    min-height: 90vh;
+    grid-template-areas: 
+    'header header header header header header' 
+    'left middle middle middle middle right' 
+    'start start stop stop log log';
+
 }
 
 
 .container {
+    grid-area: middle;
     display: grid;
     width: 400px;
     height: 400px;
@@ -51,3 +61,27 @@
     .container > .active {
         background-color: var(--color-4);
     }
+
+
+.start, .stop, .log {
+    background-color: var(--color-1);
+}
+
+.start{
+    grid-area: start;
+    color: var(--color-3);
+}
+.stop{
+    grid-area: stop;
+    color: var(--color-3);
+}
+.log{
+    grid-area: log;
+    color: var(--color-3);
+}
+
+.header{
+    grid-area: header;
+    padding: 20px;
+    text-align: center;
+}

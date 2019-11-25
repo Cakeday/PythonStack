@@ -13,6 +13,7 @@
 </head>
 <body> 
     <div class="wrapper">
+        <h1 class="header">hello, welcome to soundscape.</h1>
         <div class="container">
             <div class="image" id="1"></div>
             <div class="image" id="2"></div>
@@ -31,9 +32,9 @@
             <div class="image" id="15"></div>
             <div class="image" id="16"></div>
         </div>
-        <div class="start">Start</div>
-        <div class="stop">stop</div>
-        <div class="log">log</div>
+        <h2 class="start">Start</h2>
+        <h2 class="stop">stop</h2>
+        <h2 class="log">log</h2>
     </div>
 
 <script>
@@ -411,21 +412,23 @@
     $('div.container').children().click(function(){
         if (Tone.Transport.state == "stopped"){
             Tone.Transport.start();
+            console.log(Tone.Transport.state);
         }
     });
 
-    $('div.start').click(function(){
+    $('.start').click(function(){
         Tone.Transport.start();
+        console.log(Tone.Transport.state);
     });
 
     $('.stop').click(function(){
         if (Tone.Transport.state == "started"){
             Tone.Transport.stop();
-            console.log(Tone.Transport.getSecondsAtTime());
+            console.log(Tone.Transport.state);
         }
     });
 
-    $('div.log').click(function(){
+    $('.log').click(function(){
         console.log(Tone.Transport.getSecondsAtTime());
         console.log(Tone.Transport.state);
 
