@@ -1,5 +1,5 @@
 from django.db import models
-from __future__ import unicode_literals
+# from __future__ import unicode_literals
 
 class Book(models.Model):
     title = models.CharField(max_length=255)
