@@ -27,6 +27,7 @@ body {
         border-radius: 20px;
         padding: 20px 80px;
         box-shadow: 0 0 20px var(--color-1);
+        margin-bottom: 20px;
     }
     .item-1>h1 {
         color: var(--color-1);
