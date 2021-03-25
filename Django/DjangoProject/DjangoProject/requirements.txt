@@ -37,7 +37,7 @@ pylint-django==2.0.10
 pylint-flask==0.6
 pylint-plugin-utils==0.6
 pyo==1.0.1
-PyYAML==5.1.2
+PyYAML==5.4
 requirements-detector==0.6
 setoptconf==0.2.0
 six==1.12.0
